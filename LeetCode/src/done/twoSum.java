@@ -1,7 +1,14 @@
+package done;
 import java.util.HashMap;
 import java.util.Map;
 
 public class twoSum {
+	
+	/*
+	 * Store indexes of the two nums that sum up to target.
+	 * Hash target - current number, that way we can break out of for loop
+	 * once a numbers hash exists
+	 */
 	 public static int[] twoSumm(int[] nums, int target) {
 		 	int [] ret = new int[2];
 	        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
