@@ -2,13 +2,9 @@ package done;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-public class threeSum {
+public class ThreeSum {
 
 	// Take advantage of the fact that given array is sorted
 	public static List<List<Integer>> modTwoSum(int[] nums, int target) {
@@ -42,7 +38,7 @@ public class threeSum {
 		return ret;
 	}
 
-	public static List<List<Integer>> threeSumm(int[] nums) {
+	public static List<List<Integer>> threeSum(int[] nums) {
 		if (nums.length < 3)
 			return new ArrayList<>();
 		List<List<Integer>> ret = new ArrayList<>();
@@ -69,10 +65,9 @@ public class threeSum {
 
 	public static void main(String[] args) {
 		//int [] n = {1,2,-3,4,5,6,-7,8,9,10};
-		int [] n = {-2,-2,-2,-2,-2,-2,2,2,4,-1,-1,0,0,1,1};
+		//int [] q = {-2,-2,-2,-2,-2,-2,2,2,4,-1,-1,0,0,1,1};
 		int[] p = {-1,0,1,2,-1,-4};
-		// int tar = 10;
-		List<List<Integer>> ret = threeSumm(p);
+		List<List<Integer>> ret = threeSum(p);
 		System.out.println(ret.size());
 		for (List<Integer> i : ret) {
 			System.out.println(i.get(0) + " " + i.get(1) + " " + i.get(2));
