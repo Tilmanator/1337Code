@@ -17,12 +17,14 @@ public class PathSum2 {
 	public static void pathSumHelper(TreeNode root, int sum, List<List<Integer>> ret, List<Integer> curr) {
 		if (root == null)
 			return;
-		List<Integer> n = new LinkedList<Integer>(curr);
-		n.add(root.val);
+		curr.add(root.val);
 		if (root.val == sum && root.right == null && root.left == null)
-			ret.add(n);
-		pathSumHelper(root.left, sum - root.val, ret, n);
-		pathSumHelper(root.right, sum - root.val, ret, n);
+			ret.add(new LinkedList<Integer>(curr));
+		pathSumHelper(root.left, sum - root.val, ret, curr);
+		pathSumHelper(root.right, sum - root.val, ret, curr);
+		// Simply pop off the current value when done with it and continue
+		// traversing tree
+		curr.remove(curr.size() - 1);
 	}
 
 }
