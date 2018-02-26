@@ -1,4 +1,5 @@
 package done;
+
 import java.util.HashMap;
 
 public class DeleteEarn {
@@ -11,8 +12,8 @@ public class DeleteEarn {
 			return 0;
 		}
 
+		// Hash each number to it's total worth
 		HashMap<Integer, Integer> gain = new HashMap<Integer, Integer>();
-
 		for (int i : nums) {
 			if (gain.containsKey(i)) {
 				gain.put(i, gain.get(i) + i);
@@ -20,23 +21,28 @@ public class DeleteEarn {
 				gain.put(i, i);
 		}
 
+		// Range is 10000, easy indexing
 		int[] dp = new int[10001];
+
+		// Saves trouble in loop
 		if (gain.containsKey(1)) {
 			dp[1] = gain.get(1);
 		}
+
 		for (int i = 2; i < dp.length; ++i) {
 			if (gain.containsKey(i)) {
+				// We know the number could contribute, is it worth to include
+				// it?
 				if (gain.get(i) + dp[i - 2] > dp[i - 1]) {
 					dp[i] = dp[i - 2] + gain.get(i);
 				} else {
 					dp[i] = dp[i - 1];
 				}
 			} else {
+				// Just take the running max
 				dp[i] = Math.max(dp[i - 1], dp[i - 2]);
 			}
 		}
-
-		System.out.println(dp[1]);
 
 		return dp[10000];
 	}
