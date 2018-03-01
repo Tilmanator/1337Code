@@ -6,17 +6,16 @@ public class TargetSum {
 		// Hard-code the max length
 		int maxSum = 1000;
 
-		if (S > maxSum || S < -maxSum)
+		// Reject impossible sums
+		if (nums.length == 0 || S > maxSum || S < -maxSum)
 			return 0;
-		if (nums.length == 0)
-			return 0;
+		
+		// -maxSum to +maxSum
 		int[] sum = new int[2 * maxSum + 2];
 
-		sum[maxSum + nums[0]] = 1;
-		sum[maxSum - nums[0]] = 1;
-		// Hard-code the fact that -0 = +0
-		if (nums[0] == 0)
-			sum[maxSum] = 2;
+		// Covers 0 case...
+		sum[maxSum + nums[0]] += 1;
+		sum[maxSum - nums[0]] += 1;
 
 		// Add/subtract every number from all sums that have been found
 		for (int i = 1; i < nums.length; ++i) {
@@ -39,12 +38,7 @@ public class TargetSum {
 			sum = temp;
 		}
 
-		for (int i : sum)
-			if (i > 0)
-				System.out.println(i);
-
 		return sum[1000 + S];
-
 	}
 
 	public static void main(String[] args) {
