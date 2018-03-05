@@ -9,8 +9,8 @@ Question Name | Question # | Review? &#9989;/&#10060;
 
 		
 ## DP
-[Unique Paths](src/done/UniquePaths.java) | 62 | &#9989;
+[Unique Paths](LeetCode/src/done/UniquePaths.java) | 62 | &#9989;
 		
 ## Trees
-[Max Depth Binary Tree](src/done/MaxDepthBinary.java) | 104 | &#10060;
+[Max Depth Binary Tree](LeetCode/src/done/MaxDepthBinary.java) | 104 | &#10060;
 
