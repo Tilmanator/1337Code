@@ -7,7 +7,7 @@ Format: Question Name | Question # | Review? &#9989;/&#10060;
 	- [Trees](#trees)
 	
 ## DP
-	- [Unique Paths](LeetCode/src/done/UniquePaths.java) | 62 | &#9989;
+[Unique Paths](LeetCode/src/done/UniquePaths.java) | 62 | &#9989;
 	
 ## Trees
-	- [Max Depth Binary Tree](LeetCode/src/done/MaxDepthBinary.java) | 104 | &#10060;
+[Max Depth Binary Tree](LeetCode/src/done/MaxDepthBinary.java) | 104 | &#10060;
