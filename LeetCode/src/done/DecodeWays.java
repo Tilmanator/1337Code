@@ -5,7 +5,9 @@ public class DecodeWays {
 
 		if (s.length() == 0 || s.charAt(0) == '0')
 			return 0;
-		// Could use dp array, but we only care about previous two values
+		// We only care about previous two values
+		// The first numbers will have a count of 1, so initialize prev
+		// accordingly
 		int prev_prev = 1, prev = 1;
 
 		for (int i = 1; i < s.length(); ++i) {
@@ -14,7 +16,7 @@ public class DecodeWays {
 			if (s.charAt(i) != '0')
 				temp += prev;
 			// Valid previous two digits, add ways to get to the digit 2 before
-			if (valid(s.substring(i - 1, i + 1)))
+			if (valid(s.charAt(i - 1), s.charAt(i)))
 				temp += prev_prev;
 
 			prev_prev = prev;
@@ -25,8 +27,9 @@ public class DecodeWays {
 
 	}
 
-	public static boolean valid(String s) {
-		if (Integer.parseInt(s) <= 26 && Integer.parseInt(s) >= 10)
+	// Optimize character comparisons
+	public static boolean valid(char a, char b) {
+		if ((a == '1' && b >= '0' && b <= '9') || (a == '2' && b >= '0' && b <= '6'))
 			return true;
 		return false;
 	}
